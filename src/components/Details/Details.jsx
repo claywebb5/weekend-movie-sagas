@@ -6,9 +6,13 @@ import {useHistory} from 'react-router-dom';
 function Details() {
 
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const movie = useSelector(store => store.selectedMovie)
 
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GENRES' });
+    }, []);
 
     function handleClick(){
         history.push('/');
