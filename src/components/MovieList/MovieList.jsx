@@ -11,6 +11,12 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    function handleClick(movie) {
+        console.log('The movie is:', movie);
+        
+        
+    }
+
     return (
         <main>
             <h1>MovieList</h1>
@@ -20,6 +26,8 @@ function MovieList() {
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
                             <img src={movie.poster} alt={movie.title}/>
+                            <br />
+                            <button onClick={() => handleClick(movie)}>Details</button>
                         </div>
                     );
                 })}
