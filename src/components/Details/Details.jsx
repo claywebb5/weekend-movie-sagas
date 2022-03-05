@@ -6,13 +6,12 @@ import {useHistory} from 'react-router-dom';
 function Details() {
 
     const history = useHistory();
-    const dispatch = useDispatch();
+    
 
     const movie = useSelector(store => store.selectedMovie)
+    const genres = useSelector(store => store.genres)
 
-    useEffect(() => {
-        dispatch({ type: 'FETCH_GENRES' });
-    }, []);
+   
 
     function handleClick(){
         history.push('/');
@@ -28,7 +27,15 @@ function Details() {
                     <button onClick={handleClick}>Go back</button>
                 </div>
         
-        
+                <div>
+                {genres.map((genre, i) => {
+                    return(
+                    <div key={i}>
+                        <h1>{genre.name}</h1>
+                    </div>
+                    )
+                })}
+                </div>
         </>
     )
 }
