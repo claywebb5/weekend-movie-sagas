@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
+import {useHistory} from 'react-router-dom';
 
 function MovieList() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const movies = useSelector(store => store.movies);
 
     useEffect(() => {
@@ -17,6 +19,7 @@ function MovieList() {
             type: 'SELECTED_MOVIE',
             payload: movie
         })
+        history.push('/details');
         
     }
 
