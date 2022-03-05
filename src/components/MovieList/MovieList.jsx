@@ -13,7 +13,10 @@ function MovieList() {
 
     function handleClick(movie) {
         console.log('The movie is:', movie);
-        
+        dispatch({
+            type: 'SELECTED_MOVIE',
+            payload: movie
+        })
         
     }
 
